@@ -1,0 +1,13 @@
+export const RED = "red"
+export const BLACK = "black"
+export const GREEN = "transparent"
+export const ONE_ST_12 = "1st 12"
+export const TWO_ND_12 = "2nd 12"
+export const THREE_RD_12 = "3rd 12"
+export const RED_CELL = "RED"
+export const BLACK_CELL = "BLACK"
+export const LOW = "1 to 18"
+export const HIGH = "19 to 36"
+export const ODD = "ODD"
+export const EVEN = "EVEN"
+
