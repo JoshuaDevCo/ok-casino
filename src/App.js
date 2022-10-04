@@ -3,7 +3,7 @@ import Spinner from "./Spinner";
 
 const App = () => {
   return (
-    <div className="App">
+    <div style={{display: "flex", flexDirection: "row", justifyContent: "center"}}>
       <Board />
       <Spinner />
     </div>
