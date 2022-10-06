@@ -22,24 +22,24 @@ const Board = () => {
                     </LeftSide>
                     <Numbers>
                         <LineDiv>
-                            <NumCell Number={1} bgColor={RED} />
-                            <NumCell Number={2} bgColor={BLACK} />
-                            <NumCell Number={3} bgColor={RED} />
+                            <NumCell number={"1"} bgColor={RED} />
+                            <NumCell number={"2"} bgColor={BLACK} />
+                            <NumCell number={"3"} bgColor={RED} />
                         </LineDiv>
                         <LineDiv>
-                            <NumCell Number={4} bgColor={BLACK} />
-                            <NumCell Number={5} bgColor={RED} />
-                            <NumCell Number={6} bgColor={BLACK} />
+                            <NumCell number={"4"} bgColor={BLACK} />
+                            <NumCell number={"5"} bgColor={RED} />
+                            <NumCell number={"6"} bgColor={BLACK} />
                         </LineDiv>
                         <LineDiv>
-                            <NumCell Number={7} bgColor={RED} />
-                            <NumCell Number={8} bgColor={BLACK} />
-                            <NumCell Number={9} bgColor={RED} />
+                            <NumCell number={"7"} bgColor={RED} />
+                            <NumCell number={"8"} bgColor={BLACK} />
+                            <NumCell number={"9"} bgColor={RED} />
                         </LineDiv>
                         <LineDiv>
-                            <NumCell Number={10} bgColor={BLACK} />
-                            <NumCell Number={11} bgColor={BLACK} />
-                            <NumCell Number={12} bgColor={RED} />
+                            <NumCell number={"10"} bgColor={BLACK} />
+                            <NumCell number={"11"} bgColor={BLACK} />
+                            <NumCell number={"12"} bgColor={RED} />
                         </LineDiv>
                     </Numbers>
                 </ThirdSection>
@@ -53,24 +53,24 @@ const Board = () => {
                     </LeftSide>
                     <Numbers>
                         <LineDiv>
-                            <NumCell Number={13} bgColor={BLACK} />
-                            <NumCell Number={14} bgColor={RED} />
-                            <NumCell Number={15} bgColor={BLACK} />
+                            <NumCell number={"13"} bgColor={BLACK} />
+                            <NumCell number={"14"} bgColor={RED} />
+                            <NumCell number={"15"} bgColor={BLACK} />
                         </LineDiv>
                         <LineDiv>
-                            <NumCell Number={16} bgColor={RED} />
-                            <NumCell Number={17} bgColor={BLACK} />
-                            <NumCell Number={18} bgColor={RED} />
+                            <NumCell number={"16"} bgColor={RED} />
+                            <NumCell number={"17"} bgColor={BLACK} />
+                            <NumCell number={"18"} bgColor={RED} />
                         </LineDiv>
                         <LineDiv>
-                            <NumCell Number={19} bgColor={RED} />
-                            <NumCell Number={20} bgColor={BLACK} />
-                            <NumCell Number={21} bgColor={RED} />
+                            <NumCell number={"19"} bgColor={RED} />
+                            <NumCell number={"20"} bgColor={BLACK} />
+                            <NumCell number={"21"} bgColor={RED} />
                         </LineDiv>
                         <LineDiv>
-                            <NumCell Number={22} bgColor={BLACK} />
-                            <NumCell Number={23} bgColor={RED} />
-                            <NumCell Number={24} bgColor={BLACK} />
+                            <NumCell number={"22"} bgColor={BLACK} />
+                            <NumCell number={"23"} bgColor={RED} />
+                            <NumCell number={"24"} bgColor={BLACK} />
                         </LineDiv>
                     </Numbers>
                 </ThirdSection>
@@ -84,24 +84,24 @@ const Board = () => {
                     </LeftSide>
                     <Numbers>
                         <LineDiv>
-                            <NumCell Number={25} bgColor={RED} />
-                            <NumCell Number={26} bgColor={BLACK} />
-                            <NumCell Number={27} bgColor={RED} />
+                            <NumCell number={"25"} bgColor={RED} />
+                            <NumCell number={"26"} bgColor={BLACK} />
+                            <NumCell number={"27"} bgColor={RED} />
                         </LineDiv>
                         <LineDiv>
-                            <NumCell Number={28} bgColor={BLACK} />
-                            <NumCell Number={29} bgColor={BLACK} />
-                            <NumCell Number={30} bgColor={RED} />
+                            <NumCell number={"28"} bgColor={BLACK} />
+                            <NumCell number={"29"} bgColor={BLACK} />
+                            <NumCell number={"30"} bgColor={RED} />
                         </LineDiv>
                         <LineDiv>
-                            <NumCell Number={31} bgColor={BLACK} />
-                            <NumCell Number={32} bgColor={RED} />
-                            <NumCell Number={33} bgColor={BLACK} />
+                            <NumCell number={"31"} bgColor={BLACK} />
+                            <NumCell number={"32"} bgColor={RED} />
+                            <NumCell number={"33"} bgColor={BLACK} />
                         </LineDiv>
                         <LineDiv>
-                            <NumCell Number={34} bgColor={RED} />
-                            <NumCell Number={35} bgColor={BLACK} />
-                            <NumCell Number={36} bgColor={RED} />
+                            <NumCell number={"34"} bgColor={RED} />
+                            <NumCell number={"35"} bgColor={BLACK} />
+                            <NumCell number={"36"} bgColor={RED} />
                         </LineDiv>
                     </Numbers>
                 </ThirdSection>

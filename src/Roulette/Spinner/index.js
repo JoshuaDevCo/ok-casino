@@ -1,24 +1,33 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Wheel } from 'react-custom-roulette'
-import { roulette } from "./rouletteOptions"
+import { roulette, addBallToWinner, resetValues, getPrizeNumber } from "./rouletteOptions"
+import { spinNewPrizeNumber } from "../../Redux/Reducers/prizeNumberReducer"
+import { setSpin } from "../../Redux/Reducers/spinReducer"
+import { useSelector, useDispatch } from 'react-redux'
 import { GeneralDiv, SpinButton } from "./style"
 
 const Spinner = () => {
-    const [mustSpin, setMustSpin] = useState(false);
-    const [prizeNumber, setPrizeNumber] = useState(null)
+    const currentPrizeNumber = useSelector((state) => state.prizeNumber.value)
+    const realPrizeNumber = getPrizeNumber(currentPrizeNumber)
+    const isSpin = useSelector((state) => state.isSpin.value)
+    const dispatch = useDispatch()
+
     const handleStartSpinnig = () => {
-        const result = Math.floor((Math.random() * (roulette.length - 1)) + 1)
-        setPrizeNumber(result)
-        setMustSpin(true)
+        resetValues()
+        dispatch(spinNewPrizeNumber())
+        dispatch(setSpin())
     }
+
     const handleFinishSpinnig = () => {
-        setMustSpin(false)
+        addBallToWinner(realPrizeNumber)
+        dispatch(setSpin())
     }
+
     return (
         <GeneralDiv>
             <Wheel
-                mustStartSpinning={mustSpin}
-                prizeNumber={prizeNumber}
+                mustStartSpinning={isSpin}
+                prizeNumber={currentPrizeNumber}
                 data={roulette}
                 backgroundColors={['#3e3e3e', '#df3428']}
                 textColors={['#ffffff']}

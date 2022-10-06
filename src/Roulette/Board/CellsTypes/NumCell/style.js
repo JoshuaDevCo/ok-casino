@@ -11,6 +11,7 @@ export const Border = styled.button`
     font-family: 'Times New Roman', Times, serif;
     color: white;
     background-color: ${props => props.bgColor};
-    border: 1px solid ${props => props.winning ? "yellow" : "white"};
+    border: solid ${props => props.winning ? "4px yellow" : "1px white"};
     cursor: pointer;
+    ${props => props.winning && 'animation: blink 1s; animation-iteration-count: 10; @keyframes blink { 50% { border-color:#fff ;}}' }
 `;

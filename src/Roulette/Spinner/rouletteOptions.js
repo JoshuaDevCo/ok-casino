@@ -1,12 +1,12 @@
-export const roulette = [
-    { option: '0', style: { backgroundColor: 'green' } },
+const defaultValues = [
+    { option: `0`, style: { backgroundColor: 'green' } },
     { option: '32', style: { backgroundColor: 'red' } },
     { option: '15', style: { backgroundColor: 'black' } },
     { option: '19', style: { backgroundColor: 'red' } },
     { option: '4', style: { backgroundColor: 'black' } },
     { option: '21', style: { backgroundColor: 'red' } },
     { option: '2', style: { backgroundColor: 'black' } },
-    { option: '35', style: { backgroundColor: 'red' } },
+    { option: '25', style: { backgroundColor: 'red' } },
     { option: '17', style: { backgroundColor: 'black' } },
     { option: '34', style: { backgroundColor: 'red' } },
     { option: '6', style: { backgroundColor: 'black' } },
@@ -37,3 +37,14 @@ export const roulette = [
     { option: '3', style: { backgroundColor: 'red' } },
     { option: '26', style: { backgroundColor: 'black' } }
 ]
+export let roulette = defaultValues
+export const addBallToWinner = (place) => {
+    roulette = roulette.map(result => {
+        if (result.option === place) {
+            return { ...result, option: `⚪${result.option}    ` }
+        }
+        return result
+    })
+}
+export const resetValues = () => { roulette = defaultValues }
+export const getPrizeNumber = (place) => place && roulette[parseInt(place)].option

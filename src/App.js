@@ -1,11 +1,9 @@
-import Board from "./Board";
-import Spinner from "./Spinner";
+import Roulette from "./Roulette";
 
 const App = () => {
   return (
-    <div style={{display: "flex", flexDirection: "row", justifyContent: "center"}}>
-      <Board />
-      <Spinner />
+    <div>
+      <Roulette/>
     </div>
   );
 }
