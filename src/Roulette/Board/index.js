@@ -5,7 +5,7 @@ import TwoToOne from './CellsTypes/TwoToOne';
 import Twelve from "./CellsTypes/Twelve";
 import Double from "./CellsTypes/Double";
 import { GeneralDiv, FullDiv, LineDiv, ThirdSection, Numbers, LeftSide, Doubles } from "./style";
-import { RED, BLACK, GREEN, ONE_ST_12, TWO_ND_12, THREE_RD_12, RED_CELL, BLACK_CELL, ODD, EVEN, HIGH, LOW } from "./../Utils/constants";
+import { RED, BLACK, GREEN, ONE_ST_12, TWO_ND_12, THREE_RD_12, RED_CELL, BLACK_CELL, ODD, EVEN, HIGH, LOW } from "./../../Utils/constants";
 
 const Board = () => {
     return (
