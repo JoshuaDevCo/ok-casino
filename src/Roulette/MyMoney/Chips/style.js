@@ -13,7 +13,9 @@ const getIconChip = (color) => {
         case "black":
             return blackChip;
         case "green":
-            return greenChip;              
+            return greenChip;  
+        default:
+            return blackChip;            
     }
 }
 

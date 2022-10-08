@@ -12,6 +12,6 @@ export const Border = styled.button`
     color: white;
     background-color: ${props => props.bgColor};
     border: solid ${props => props.winning ? "4px yellow" : "1px white"};
-    cursor: pointer;
+    cursor: ${props => props.disabled ? "not-allowed" : "pointer"};
     ${props => props.winning && 'animation: blink 1s; animation-iteration-count: 10; @keyframes blink { 50% { border-color:#fff ;}}' }
 `;

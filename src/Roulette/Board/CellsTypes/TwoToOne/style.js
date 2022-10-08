@@ -13,5 +13,5 @@ export const Border = styled.button`
     color: white;
     background-color: ${props => props.bgColor};
     border: 1px solid white;
-    cursor: pointer;
+    cursor: ${props => props.disabled ? "not-allowed" : "pointer"};
 `;

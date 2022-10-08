@@ -4,111 +4,113 @@ import ZeroCell from './CellsTypes/ZeroCell';
 import TwoToOne from './CellsTypes/TwoToOne';
 import Twelve from "./CellsTypes/Twelve";
 import Double from "./CellsTypes/Double";
+import { useSelector } from 'react-redux'
 import { GeneralDiv, FullDiv, LineDiv, ThirdSection, Numbers, LeftSide, Doubles } from "./style";
 import { RED, BLACK, GREEN, ONE_ST_12, TWO_ND_12, THREE_RD_12, RED_CELL, BLACK_CELL, ODD, EVEN, HIGH, LOW } from "./../../Utils/constants";
 
 const Board = () => {
+    const isSpin = useSelector((state) => state.isSpin.value)
     return (
         <GeneralDiv>
             <FullDiv>
-                <ZeroCell bgColor={GREEN} />
+                <ZeroCell bgColor={GREEN} disabled={isSpin} />
                 <ThirdSection>
                     <LeftSide>
                         <Doubles>
-                            <Double bgColor={GREEN} text={LOW} />
-                            <Double bgColor={GREEN} text={EVEN} />
+                            <Double bgColor={GREEN} text={LOW} disabled={isSpin} />
+                            <Double bgColor={GREEN} text={EVEN} disabled={isSpin} />
                         </Doubles>
-                        <Twelve text={ONE_ST_12} bgColor={GREEN} />
+                        <Twelve text={ONE_ST_12} bgColor={GREEN} disabled={isSpin} />
                     </LeftSide>
                     <Numbers>
                         <LineDiv>
-                            <NumCell number={"1"} bgColor={RED} />
-                            <NumCell number={"2"} bgColor={BLACK} />
-                            <NumCell number={"3"} bgColor={RED} />
+                            <NumCell number={"1"} bgColor={RED} disabled={isSpin} />
+                            <NumCell number={"2"} bgColor={BLACK} disabled={isSpin} />
+                            <NumCell number={"3"} bgColor={RED} disabled={isSpin} />
                         </LineDiv>
                         <LineDiv>
-                            <NumCell number={"4"} bgColor={BLACK} />
-                            <NumCell number={"5"} bgColor={RED} />
-                            <NumCell number={"6"} bgColor={BLACK} />
+                            <NumCell number={"4"} bgColor={BLACK} disabled={isSpin} />
+                            <NumCell number={"5"} bgColor={RED} disabled={isSpin} />
+                            <NumCell number={"6"} bgColor={BLACK} disabled={isSpin} />
                         </LineDiv>
                         <LineDiv>
-                            <NumCell number={"7"} bgColor={RED} />
-                            <NumCell number={"8"} bgColor={BLACK} />
-                            <NumCell number={"9"} bgColor={RED} />
+                            <NumCell number={"7"} bgColor={RED} disabled={isSpin} />
+                            <NumCell number={"8"} bgColor={BLACK} disabled={isSpin} />
+                            <NumCell number={"9"} bgColor={RED} disabled={isSpin} />
                         </LineDiv>
                         <LineDiv>
-                            <NumCell number={"10"} bgColor={BLACK} />
-                            <NumCell number={"11"} bgColor={BLACK} />
-                            <NumCell number={"12"} bgColor={RED} />
+                            <NumCell number={"10"} bgColor={BLACK} disabled={isSpin} />
+                            <NumCell number={"11"} bgColor={BLACK} disabled={isSpin} />
+                            <NumCell number={"12"} bgColor={RED} disabled={isSpin} />
                         </LineDiv>
                     </Numbers>
                 </ThirdSection>
                 <ThirdSection>
                     <LeftSide>
                         <Doubles>
-                            <Double bgColor={RED} text={RED_CELL} />
-                            <Double bgColor={BLACK} text={BLACK_CELL} />
+                            <Double bgColor={RED} text={RED_CELL} disabled={isSpin} />
+                            <Double bgColor={BLACK} text={BLACK_CELL} disabled={isSpin} />
                         </Doubles>
-                        <Twelve text={TWO_ND_12} bgColor={GREEN} />
+                        <Twelve text={TWO_ND_12} bgColor={GREEN} disabled={isSpin} />
                     </LeftSide>
                     <Numbers>
                         <LineDiv>
-                            <NumCell number={"13"} bgColor={BLACK} />
-                            <NumCell number={"14"} bgColor={RED} />
-                            <NumCell number={"15"} bgColor={BLACK} />
+                            <NumCell number={"13"} bgColor={BLACK} disabled={isSpin} />
+                            <NumCell number={"14"} bgColor={RED} disabled={isSpin} />
+                            <NumCell number={"15"} bgColor={BLACK} disabled={isSpin} />
                         </LineDiv>
                         <LineDiv>
-                            <NumCell number={"16"} bgColor={RED} />
-                            <NumCell number={"17"} bgColor={BLACK} />
-                            <NumCell number={"18"} bgColor={RED} />
+                            <NumCell number={"16"} bgColor={RED} disabled={isSpin} />
+                            <NumCell number={"17"} bgColor={BLACK} disabled={isSpin} />
+                            <NumCell number={"18"} bgColor={RED} disabled={isSpin} />
                         </LineDiv>
                         <LineDiv>
-                            <NumCell number={"19"} bgColor={RED} />
-                            <NumCell number={"20"} bgColor={BLACK} />
-                            <NumCell number={"21"} bgColor={RED} />
+                            <NumCell number={"19"} bgColor={RED} disabled={isSpin} />
+                            <NumCell number={"20"} bgColor={BLACK} disabled={isSpin} />
+                            <NumCell number={"21"} bgColor={RED} disabled={isSpin} />
                         </LineDiv>
                         <LineDiv>
-                            <NumCell number={"22"} bgColor={BLACK} />
-                            <NumCell number={"23"} bgColor={RED} />
-                            <NumCell number={"24"} bgColor={BLACK} />
+                            <NumCell number={"22"} bgColor={BLACK} disabled={isSpin} />
+                            <NumCell number={"23"} bgColor={RED} disabled={isSpin} />
+                            <NumCell number={"24"} bgColor={BLACK} disabled={isSpin} />
                         </LineDiv>
                     </Numbers>
                 </ThirdSection>
                 <ThirdSection>
                     <LeftSide>
                         <Doubles>
-                            <Double bgColor={GREEN} text={ODD} />
-                            <Double bgColor={GREEN} text={HIGH} />
+                            <Double bgColor={GREEN} text={ODD} disabled={isSpin} />
+                            <Double bgColor={GREEN} text={HIGH} disabled={isSpin} />
                         </Doubles>
-                        <Twelve text={THREE_RD_12} bgColor={GREEN} />
+                        <Twelve text={THREE_RD_12} bgColor={GREEN} disabled={isSpin} />
                     </LeftSide>
                     <Numbers>
                         <LineDiv>
-                            <NumCell number={"25"} bgColor={RED} />
-                            <NumCell number={"26"} bgColor={BLACK} />
-                            <NumCell number={"27"} bgColor={RED} />
+                            <NumCell number={"25"} bgColor={RED} disabled={isSpin} />
+                            <NumCell number={"26"} bgColor={BLACK} disabled={isSpin} />
+                            <NumCell number={"27"} bgColor={RED} disabled={isSpin} />
                         </LineDiv>
                         <LineDiv>
-                            <NumCell number={"28"} bgColor={BLACK} />
-                            <NumCell number={"29"} bgColor={BLACK} />
-                            <NumCell number={"30"} bgColor={RED} />
+                            <NumCell number={"28"} bgColor={BLACK} disabled={isSpin} />
+                            <NumCell number={"29"} bgColor={BLACK} disabled={isSpin} />
+                            <NumCell number={"30"} bgColor={RED} disabled={isSpin} />
                         </LineDiv>
                         <LineDiv>
-                            <NumCell number={"31"} bgColor={BLACK} />
-                            <NumCell number={"32"} bgColor={RED} />
-                            <NumCell number={"33"} bgColor={BLACK} />
+                            <NumCell number={"31"} bgColor={BLACK} disabled={isSpin} />
+                            <NumCell number={"32"} bgColor={RED} disabled={isSpin} />
+                            <NumCell number={"33"} bgColor={BLACK} disabled={isSpin} />
                         </LineDiv>
                         <LineDiv>
-                            <NumCell number={"34"} bgColor={RED} />
-                            <NumCell number={"35"} bgColor={BLACK} />
-                            <NumCell number={"36"} bgColor={RED} />
+                            <NumCell number={"34"} bgColor={RED} disabled={isSpin} />
+                            <NumCell number={"35"} bgColor={BLACK} disabled={isSpin} />
+                            <NumCell number={"36"} bgColor={RED} disabled={isSpin} />
                         </LineDiv>
                     </Numbers>
                 </ThirdSection>
                 <LineDiv>
-                    <TwoToOne bgColor={GREEN} indent={true} />
-                    <TwoToOne bgColor={GREEN} />
-                    <TwoToOne bgColor={GREEN} />
+                    <TwoToOne bgColor={GREEN} indent={true} disabled={isSpin} />
+                    <TwoToOne bgColor={GREEN} disabled={isSpin} />
+                    <TwoToOne bgColor={GREEN} disabled={isSpin} />
                 </LineDiv>
             </FullDiv>
         </GeneralDiv>
