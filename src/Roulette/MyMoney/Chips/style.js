@@ -5,7 +5,7 @@ import yellowChip from "./../../../Assets/yellow_chip.png"
 import greenChip from "./../../../Assets/green_chip.png"
 import blueChip from "./../../../Assets/blue_chip.png"
 
-const getIconChip = (color) => {
+export const getIconChip = (color) => {
     switch(color){
         case "red":
             return redChip;

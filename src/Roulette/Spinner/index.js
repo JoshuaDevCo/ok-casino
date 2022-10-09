@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { GeneralDiv, SpinButton } from "./style"
 import { splitPrizes, resetMoneyOnTable } from "./../../Calculator"
 import { increaseMyMoney } from "./../../Redux/Reducers/myMoneyReducer"
+import { resetMoneyImgFromTable } from "./../../Utils/functions"
 
 const Spinner = () => {
     const currentPrizeNumber = useSelector((state) => state.prizeNumber.value)
@@ -25,6 +26,7 @@ const Spinner = () => {
         const prize = splitPrizes(realPrizeNumber)
         dispatch(increaseMyMoney(prize))
         resetMoneyOnTable()
+        resetMoneyImgFromTable()
         dispatch(setSpin())
     }
 

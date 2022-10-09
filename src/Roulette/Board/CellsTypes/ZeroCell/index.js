@@ -7,25 +7,29 @@ import { moneyOnTable } from "./../../../../Calculator/index"
 import { decreaseMyMoney } from "./../../../../Redux/Reducers/myMoneyReducer"
 import { notifyError } from "../../../../Utils/toasts"
 import { NOT_HAVE_ENOUGH_MONEY } from "./../../../../Utils/messages"
+import { getIconChip } from "./../../../MyMoney/Chips/style"
 
 const ZeroCell = ({ number, bgColor, disabled }) => {
+    const buttonName = `numCellButton${number}`;
     const currentPrizeNumber = useSelector((state) => state.prizeNumber.value)
     const realPrizeNumber = getPrizeNumber(currentPrizeNumber)
     const isSpin = useSelector((state) => state.isSpin.value)
-    const chosenChipValue = useSelector((state) => state.chosenChip.value)
+    const { value, color } = useSelector((state) => state.chosenChip)
     const myMoney = useSelector((state) => state.myMoney.value)
     const dispatch = useDispatch()
 
     const handleOnClick = () => {
-        if (chosenChipValue <= myMoney) {
-            moneyOnTable[number] = moneyOnTable[number] + chosenChipValue;
-            dispatch(decreaseMyMoney(chosenChipValue))
+        if (value <= myMoney) {
+            moneyOnTable[number] = moneyOnTable[number] + value;
+            const element = document.getElementById(buttonName)
+            element.innerHTML += `<img src="${getIconChip(color)}" style="height:35px; width:35px; position: absolute; padding-${(Math.random() * 2 > 1) ? 'right' : 'left'}: ${(Math.random() * 100)}px" />`
+            dispatch(decreaseMyMoney(value))
         } else {
             notifyError(NOT_HAVE_ENOUGH_MONEY)
         }
     }
     return (
-        <Border bgColor={bgColor} winning={!isSpin && 0 === extractPrizeNumber(realPrizeNumber)} disabled={disabled} onClick={handleOnClick}>
+        <Border id={buttonName} bgColor={bgColor} winning={!isSpin && 0 === extractPrizeNumber(realPrizeNumber)} disabled={disabled} onClick={handleOnClick}>
             {number}
         </Border>
     );

@@ -6,7 +6,7 @@ import Twelve from "./CellsTypes/Twelve";
 import Double from "./CellsTypes/Double";
 import { useSelector } from 'react-redux'
 import { GeneralDiv, FullDiv, LineDiv, ThirdSection, Numbers, LeftSide, Doubles } from "./style";
-import { RED, BLACK, GREEN, ONE_ST_12, TWO_ND_12, THREE_RD_12, RED_CELL, BLACK_CELL, ODD, EVEN, HIGH, LOW } from "./../../Utils/constants";
+import { RED, BLACK, GREEN, ONE_ST_12, TWO_ND_12, THREE_RD_12, TWO_TO_ONE, RED_CELL, BLACK_CELL, ODD, EVEN, HIGH, LOW } from "./../../Utils/constants";
 
 const Board = () => {
     const isSpin = useSelector((state) => state.isSpin.value)
@@ -108,9 +108,9 @@ const Board = () => {
                     </Numbers>
                 </ThirdSection>
                 <LineDiv>
-                    <TwoToOne number={"firstCol"} bgColor={GREEN} indent={true} disabled={isSpin} />
-                    <TwoToOne number={"seconedCol"} bgColor={GREEN} disabled={isSpin} />
-                    <TwoToOne number={"thirdCol"} bgColor={GREEN} disabled={isSpin} />
+                    <TwoToOne number={"firstCol"} text={TWO_TO_ONE} bgColor={GREEN} indent={true} disabled={isSpin} />
+                    <TwoToOne number={"seconedCol"} text={TWO_TO_ONE} bgColor={GREEN} disabled={isSpin} />
+                    <TwoToOne number={"thirdCol"} text={TWO_TO_ONE} bgColor={GREEN} disabled={isSpin} />
                 </LineDiv>
             </FullDiv>
         </GeneralDiv>
