@@ -10,6 +10,7 @@ const ChipsButtons = () => {
     return (
         <GeneralDiv>
             <ChipButton id={"red"} chosenButton={chosenChipColor} onClick={() => dispatch(setChosenChip("red"))} />
+            <ChipButton id={"yellow"} chosenButton={chosenChipColor} onClick={() => dispatch(setChosenChip("yellow"))} />
             <ChipButton id={"green"} chosenButton={chosenChipColor} onClick={() => dispatch(setChosenChip("green"))} />
             <ChipButton id={"blue"} chosenButton={chosenChipColor} onClick={() => dispatch(setChosenChip("blue"))} />
             <ChipButton id={"black"} chosenButton={chosenChipColor} onClick={() => dispatch(setChosenChip("black"))} />

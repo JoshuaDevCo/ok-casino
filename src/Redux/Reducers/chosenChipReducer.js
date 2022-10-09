@@ -13,6 +13,9 @@ export const chosenChipReducer = createSlice({
                 case "red": {
                     state.value = 10; break;
                 }
+                case "yellow": {
+                    state.value = 50; break;
+                }
                 case "green": {
                     state.value = 100; break;
                 }

@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import blackChip from "./../../../Assets/black_chip.png"
 import redChip from "./../../../Assets/red_chip.png"
+import yellowChip from "./../../../Assets/yellow_chip.png"
 import greenChip from "./../../../Assets/green_chip.png"
 import blueChip from "./../../../Assets/blue_chip.png"
 
@@ -8,6 +9,8 @@ const getIconChip = (color) => {
     switch(color){
         case "red":
             return redChip;
+        case "yellow":
+            return yellowChip;
         case "blue":
             return blueChip;
         case "black":
@@ -36,6 +39,6 @@ export const ChipButton = styled.button`
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    border: ${props => props.chosenButton === props.id ? "1px gold solid" : "none"};
+    border: ${props => props.chosenButton === props.id ? "1px silver solid" : "none"};
     cursor: pointer;
 `;
