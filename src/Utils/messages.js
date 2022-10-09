@@ -1,0 +1,1 @@
+export const NOT_HAVE_ENOUGH_MONEY = "Sorry! you dont have enough money"

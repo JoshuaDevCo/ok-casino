@@ -1,9 +1,14 @@
 import Roulette from "./Roulette";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 const App = () => {
   return (
     <div>
-      <Roulette/>
+      <ToastContainer />
+      <Roulette />
     </div>
   );
 }

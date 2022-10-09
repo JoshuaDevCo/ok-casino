@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { GeneralDiv, ChipButton } from "./style";
+import { useSelector, useDispatch } from 'react-redux'
+import { setChosenChip } from "../../../Redux/Reducers/chosenChipReducer"
 
 const ChipsButtons = () => {
-    const [chosenButton, setChosenButton] = useState(null)
+    const chosenChipColor = useSelector((state) => state.chosenChip.color)
+    const dispatch = useDispatch()
+
     return (
         <GeneralDiv>
-            <ChipButton id={"red"} chosenButton={chosenButton} onClick={() => setChosenButton("red")}/>
-            <ChipButton id={"green"} chosenButton={chosenButton} onClick={() => setChosenButton("green")}/>
-            <ChipButton id={"blue"} chosenButton={chosenButton} onClick={() => setChosenButton("blue")}/>
-            <ChipButton id={"black"} chosenButton={chosenButton} onClick={() => setChosenButton("black")}/>
+            <ChipButton id={"red"} chosenButton={chosenChipColor} onClick={() => dispatch(setChosenChip("red"))} />
+            <ChipButton id={"green"} chosenButton={chosenChipColor} onClick={() => dispatch(setChosenChip("green"))} />
+            <ChipButton id={"blue"} chosenButton={chosenChipColor} onClick={() => dispatch(setChosenChip("blue"))} />
+            <ChipButton id={"black"} chosenButton={chosenChipColor} onClick={() => dispatch(setChosenChip("black"))} />
         </GeneralDiv>
     );
 };

@@ -13,14 +13,14 @@ const Board = () => {
     return (
         <GeneralDiv>
             <FullDiv>
-                <ZeroCell bgColor={GREEN} disabled={isSpin} />
+                <ZeroCell number={"0"} bgColor={GREEN} disabled={isSpin} />
                 <ThirdSection>
                     <LeftSide>
                         <Doubles>
-                            <Double bgColor={GREEN} text={LOW} disabled={isSpin} />
-                            <Double bgColor={GREEN} text={EVEN} disabled={isSpin} />
+                            <Double number={"low"} bgColor={GREEN} text={LOW} disabled={isSpin} />
+                            <Double number={"even"} bgColor={GREEN} text={EVEN} disabled={isSpin} />
                         </Doubles>
-                        <Twelve text={ONE_ST_12} bgColor={GREEN} disabled={isSpin} />
+                        <Twelve number={"firstThird"} text={ONE_ST_12} bgColor={GREEN} disabled={isSpin} />
                     </LeftSide>
                     <Numbers>
                         <LineDiv>
@@ -48,10 +48,10 @@ const Board = () => {
                 <ThirdSection>
                     <LeftSide>
                         <Doubles>
-                            <Double bgColor={RED} text={RED_CELL} disabled={isSpin} />
-                            <Double bgColor={BLACK} text={BLACK_CELL} disabled={isSpin} />
+                            <Double number={"red"} bgColor={RED} text={RED_CELL} disabled={isSpin} />
+                            <Double number={"black"} bgColor={BLACK} text={BLACK_CELL} disabled={isSpin} />
                         </Doubles>
-                        <Twelve text={TWO_ND_12} bgColor={GREEN} disabled={isSpin} />
+                        <Twelve number={"seconedThird"} text={TWO_ND_12} bgColor={GREEN} disabled={isSpin} />
                     </LeftSide>
                     <Numbers>
                         <LineDiv>
@@ -79,10 +79,10 @@ const Board = () => {
                 <ThirdSection>
                     <LeftSide>
                         <Doubles>
-                            <Double bgColor={GREEN} text={ODD} disabled={isSpin} />
-                            <Double bgColor={GREEN} text={HIGH} disabled={isSpin} />
+                            <Double number={"odd"} bgColor={GREEN} text={ODD} disabled={isSpin} />
+                            <Double number={"high"} bgColor={GREEN} text={HIGH} disabled={isSpin} />
                         </Doubles>
-                        <Twelve text={THREE_RD_12} bgColor={GREEN} disabled={isSpin} />
+                        <Twelve number={"thirdThird"} text={THREE_RD_12} bgColor={GREEN} disabled={isSpin} />
                     </LeftSide>
                     <Numbers>
                         <LineDiv>
@@ -108,9 +108,9 @@ const Board = () => {
                     </Numbers>
                 </ThirdSection>
                 <LineDiv>
-                    <TwoToOne bgColor={GREEN} indent={true} disabled={isSpin} />
-                    <TwoToOne bgColor={GREEN} disabled={isSpin} />
-                    <TwoToOne bgColor={GREEN} disabled={isSpin} />
+                    <TwoToOne number={"firstCol"} bgColor={GREEN} indent={true} disabled={isSpin} />
+                    <TwoToOne number={"seconedCol"} bgColor={GREEN} disabled={isSpin} />
+                    <TwoToOne number={"thirdCol"} bgColor={GREEN} disabled={isSpin} />
                 </LineDiv>
             </FullDiv>
         </GeneralDiv>
