@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ChipsButtons from "./Chips"
 import { useSelector } from 'react-redux'
 import { GeneralDiv, MoneyLabel } from "./style";
