@@ -49,7 +49,7 @@ const Spinner = () => {
                 spinDuration={2.0}
                 onStopSpinning={() => handleFinishSpinnig()}
             />
-            <SpinButton onClick={() => handleStartSpinnig()}>
+            <SpinButton onClick={() => handleStartSpinnig()} disabled={isSpin}>
                 SPIN!
             </SpinButton>
         </GeneralDiv>

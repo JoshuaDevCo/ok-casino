@@ -16,5 +16,5 @@ export const SpinButton = styled.button`
     font-size: medium;
     border: none;
     border-radius: 7px;
-    cursor: pointer;
+    cursor: ${props => props.disabled ? "not-allowed" : "pointer"};
 `;
