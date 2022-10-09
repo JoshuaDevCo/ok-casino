@@ -8,6 +8,8 @@ import { GeneralDiv, SpinButton } from "./style"
 import { splitPrizes, resetMoneyOnTable } from "./../../Calculator"
 import { increaseMyMoney } from "./../../Redux/Reducers/myMoneyReducer"
 import { resetMoneyImgFromTable } from "./../../Utils/functions"
+import { NONE_PRIZE, NO_MORE_BETS, SUM_PRIZE } from "./../../Utils/messages"
+import { notifyWarn, notifyInfo } from "./../../Utils/toasts"
 
 const Spinner = () => {
     const currentPrizeNumber = useSelector((state) => state.prizeNumber.value)
@@ -19,11 +21,16 @@ const Spinner = () => {
         resetValues()
         dispatch(spinNewPrizeNumber())
         dispatch(setSpin())
+        notifyWarn(NO_MORE_BETS)
     }
 
     const handleFinishSpinnig = () => {
         addBallToWinner(realPrizeNumber)
         const prize = splitPrizes(realPrizeNumber)
+        if(prize > 0)
+            notifyInfo(SUM_PRIZE(prize))
+        else
+            notifyInfo(NONE_PRIZE)
         dispatch(increaseMyMoney(prize))
         resetMoneyOnTable()
         resetMoneyImgFromTable()
