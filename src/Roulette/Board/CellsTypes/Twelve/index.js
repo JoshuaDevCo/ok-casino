@@ -11,7 +11,6 @@ const Twelve = ({ number, text, bgColor, disabled }) => {
     const {value, color} = useSelector((state) => state.chosenChip)
     const myMoney = useSelector((state) => state.myMoney.value)
     const dispatch = useDispatch()
-    // console.log(document.getElementById(text).innerHTML);
     const handleOnClick = () => {
         if (value <= myMoney) {
             moneyOnTable[number] = moneyOnTable[number] + value;
@@ -23,7 +22,7 @@ const Twelve = ({ number, text, bgColor, disabled }) => {
         }
     }
     return (
-        <Border id={text} bgColor={bgColor} disabled={disabled} onClick={handleOnClick}>
+        <Border id={text} bgColor={bgColor} disabled={disabled || !color} onClick={handleOnClick}>
             <div style={{transform: "rotate(90deg)", whiteSpace: "nowrap"}}>{text}</div>
         </Border>
     );

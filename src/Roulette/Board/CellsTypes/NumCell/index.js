@@ -29,7 +29,7 @@ const NumCell = ({ number, bgColor, disabled }) => {
         }
     }
     return (
-        <Border id={buttonName} disabled={disabled} bgColor={bgColor} winning={!isSpin && number === extractPrizeNumber(realPrizeNumber)} onClick={handleOnClick}>
+        <Border id={buttonName} disabled={disabled || !color} bgColor={bgColor} winning={!isSpin && number === extractPrizeNumber(realPrizeNumber)} onClick={handleOnClick}>
             {number}
         </Border>
     );

@@ -29,7 +29,7 @@ const ZeroCell = ({ number, bgColor, disabled }) => {
         }
     }
     return (
-        <Border id={buttonName} bgColor={bgColor} winning={!isSpin && 0 === extractPrizeNumber(realPrizeNumber)} disabled={disabled} onClick={handleOnClick}>
+        <Border id={buttonName} bgColor={bgColor} winning={!isSpin && 0 === extractPrizeNumber(realPrizeNumber)} disabled={disabled || !color} onClick={handleOnClick}>
             {number}
         </Border>
     );

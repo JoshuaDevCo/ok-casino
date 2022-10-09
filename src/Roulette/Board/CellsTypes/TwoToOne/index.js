@@ -22,7 +22,7 @@ const TwoToOne = ({ number, text, bgColor, indent, disabled }) => {
         }
     }
     return (
-        <Border id={number + text} bgColor={bgColor} indent={indent} disabled={disabled} onClick={handleOnClick}>
+        <Border id={number + text} bgColor={bgColor} indent={indent} disabled={disabled || !color} onClick={handleOnClick}>
             {text}
         </Border>
     );

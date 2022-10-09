@@ -24,7 +24,7 @@ const Double = ({ number, text, bgColor, disabled }) => {
     }
     
     return (
-        <Border id={buttonName} bgColor={bgColor} disabled={disabled} onClick={handleOnClick}>
+        <Border id={buttonName} bgColor={bgColor} disabled={disabled || !color} onClick={handleOnClick}>
             <div style={{ transform: "rotate(90deg)", whiteSpace: "nowrap" }}>{text}</div>
         </Border>
     );
