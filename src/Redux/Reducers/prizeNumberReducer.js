@@ -8,7 +8,7 @@ export const prizeNumberReducer = createSlice({
   },
   reducers: {
     spinNewPrizeNumber: (state) => {
-      const newRandomNumber = Math.floor((Math.random() * (roulette.length))
+      const newRandomNumber = Math.floor((Math.random() * (roulette.length)))
       state.value = newRandomNumber
     }
   },
