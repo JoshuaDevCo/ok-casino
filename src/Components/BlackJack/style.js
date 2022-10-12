@@ -14,6 +14,6 @@ export const InteriorDiv = styled.div`
 `;
 
 export const TitleGame = styled.p`
-    font-size: x-large;
+    font-size: large;
     font-weight: 700;
 `;

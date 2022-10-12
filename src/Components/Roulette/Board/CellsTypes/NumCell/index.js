@@ -1,15 +1,15 @@
 import React from 'react';
 import { Border } from "./style";
-import { useSelector, useDispatch } from 'react-redux'
+import { moneyOnTable } from "./../../../../../Calculator/index"
 import { getPrizeNumber } from "../../../Spinner/rouletteOptions"
-import { extractPrizeNumber } from "./../../../../Utils/functions"
-import { moneyOnTable } from "./../../../../Calculator/index"
-import { decreaseMyMoney } from "./../../../../Redux/Reducers/myMoneyReducer"
-import { notifyError } from "../../../../Utils/toasts"
-import { NOT_HAVE_ENOUGH_MONEY } from "./../../../../Utils/messages"
+import { extractPrizeNumber } from "../../../Utils/functions"
+import { useSelector, useDispatch } from 'react-redux'
+import { decreaseMyMoney } from "./../../../../../Redux/Reducers/myMoneyReducer"
+import { notifyError } from "../../../../../Utils/toasts"
+import { NOT_HAVE_ENOUGH_MONEY } from "../../../Utils/messages"
 import { getIconChip } from "./../../../MyMoney/Chips/style"
 
-const ZeroCell = ({ number, bgColor, disabled }) => {
+const NumCell = ({ number, bgColor, disabled }) => {
     const buttonName = `numCellButton${number}`;
     const currentPrizeNumber = useSelector((state) => state.prizeNumber.value)
     const realPrizeNumber = getPrizeNumber(currentPrizeNumber)
@@ -22,17 +22,17 @@ const ZeroCell = ({ number, bgColor, disabled }) => {
         if (value <= myMoney) {
             moneyOnTable[number] = moneyOnTable[number] + value;
             const element = document.getElementById(buttonName)
-            element.innerHTML += `<img src="${getIconChip(color)}" style="height:35px; width:35px; position: absolute; padding-${(Math.random() * 2 > 1) ? 'right' : 'left'}: ${(Math.random() * 100)}px" />`
+            element.innerHTML += `<img src="${getIconChip(color)}" style="height:40px; width:40px; position: absolute; padding-${(Math.random() * 1 > 1) ? 'right' : 'left'}: ${(Math.random() * 15)}px" />`
             dispatch(decreaseMyMoney(value))
         } else {
             notifyError(NOT_HAVE_ENOUGH_MONEY)
         }
     }
     return (
-        <Border id={buttonName} bgColor={bgColor} winning={!isSpin && 0 === extractPrizeNumber(realPrizeNumber)} disabled={disabled || !color} onClick={handleOnClick}>
+        <Border id={buttonName} disabled={disabled || !color} bgColor={bgColor} winning={!isSpin && number === extractPrizeNumber(realPrizeNumber)} onClick={handleOnClick}>
             {number}
         </Border>
     );
 };
 
-export default ZeroCell;
+export default NumCell;

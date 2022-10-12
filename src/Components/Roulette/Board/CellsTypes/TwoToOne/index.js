@@ -1,10 +1,10 @@
 import React from 'react';
 import { Border } from "./style";
 import { useSelector, useDispatch } from 'react-redux'
-import { decreaseMyMoney } from "./../../../../Redux/Reducers/myMoneyReducer"
-import { notifyError } from "../../../../Utils/toasts"
-import { NOT_HAVE_ENOUGH_MONEY } from "./../../../../Utils/messages"
-import { moneyOnTable } from "./../../../../Calculator/index"
+import { decreaseMyMoney } from "./../../../../../Redux/Reducers/myMoneyReducer"
+import { notifyError } from "../../../../../Utils/toasts"
+import { NOT_HAVE_ENOUGH_MONEY } from "../../../Utils/messages"
+import { moneyOnTable } from "./../../../../../Calculator/index"
 import { getIconChip } from "./../../../MyMoney/Chips/style"
 
 const TwoToOne = ({ number, text, bgColor, indent, disabled }) => {

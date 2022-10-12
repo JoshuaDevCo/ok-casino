@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { roulette } from "../../Roulette/Spinner/rouletteOptions"
+import { roulette } from "../../Components/Roulette/Spinner/rouletteOptions"
 
 export const prizeNumberReducer = createSlice({
   name: 'prizeNumber',

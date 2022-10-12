@@ -1,9 +1,9 @@
 import styled from "styled-components"
-import blackChip from "./../../../Assets/black_chip.png"
-import redChip from "./../../../Assets/red_chip.png"
-import yellowChip from "./../../../Assets/yellow_chip.png"
-import greenChip from "./../../../Assets/green_chip.png"
-import blueChip from "./../../../Assets/blue_chip.png"
+import blackChip from "./../../../../Assets/black_chip.png"
+import redChip from "./../../../../Assets/red_chip.png"
+import yellowChip from "./../../../../Assets/yellow_chip.png"
+import greenChip from "./../../../../Assets/green_chip.png"
+import blueChip from "./../../../../Assets/blue_chip.png"
 
 export const getIconChip = (color) => {
     switch(color){

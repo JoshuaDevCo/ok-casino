@@ -1,7 +1,7 @@
 import React from 'react';
 import { GeneralDiv, ChipButton } from "./style";
 import { useSelector, useDispatch } from 'react-redux'
-import { setChosenChip } from "../../../Redux/Reducers/chosenChipReducer"
+import { setChosenChip } from "../../../../Redux/Reducers/chosenChipReducer"
 
 const ChipsButtons = () => {
     const chosenChipColor = useSelector((state) => state.chosenChip.color)
