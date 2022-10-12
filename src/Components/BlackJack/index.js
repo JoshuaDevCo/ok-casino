@@ -1,11 +1,9 @@
 import React from 'react';
-import { GeneralDiv, InteriorDiv, TitleGame } from "./style";
-import { BLACKJACK_TITLE } from "../BlackJack/Utils/constants"
+import { GeneralDiv, InteriorDiv } from "./style";
 
 const BlackJack = () => {
     return (
         <GeneralDiv>
-            <TitleGame>{BLACKJACK_TITLE}</TitleGame>
             <InteriorDiv>
                 BlackJack
             </InteriorDiv>

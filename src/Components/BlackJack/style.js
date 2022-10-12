@@ -5,15 +5,12 @@ export const GeneralDiv = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100vw;
+    height: 100vh;
 `;
 
 export const InteriorDiv = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
-`;
-
-export const TitleGame = styled.p`
-    font-size: large;
-    font-weight: 700;
 `;

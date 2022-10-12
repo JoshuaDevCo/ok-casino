@@ -5,7 +5,8 @@ export const GeneralDiv = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 50px;
+    width: 100vw;
+    height: 100vh;
 `;
 
 export const LogoImage = styled.img`

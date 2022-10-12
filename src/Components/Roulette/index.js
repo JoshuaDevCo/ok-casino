@@ -3,14 +3,12 @@ import Board from "./Board";
 import Spinner from "./Spinner";
 import MyMoney from "./MyMoney";
 import History from "./History";
-import { GeneralDiv, InteriorDiv, TitleGame } from "./style";
-import { ROULETTE_TITLE } from "./Utils/constants"
+import { GeneralDiv, InteriorDiv } from "./style";
 
 const Roulette = () => {
 
     return (
         <GeneralDiv>
-            <TitleGame>{ROULETTE_TITLE}</TitleGame>
             <InteriorDiv>
                 <MyMoney />
                 <Board />

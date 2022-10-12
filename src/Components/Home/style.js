@@ -5,6 +5,8 @@ export const GeneralDiv = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100vw;
+    height: 100vh;
 `;
 
 export const Title = styled.p`
