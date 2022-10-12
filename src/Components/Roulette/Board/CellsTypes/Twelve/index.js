@@ -1,6 +1,6 @@
 import React from 'react';
 import { Border } from "./style";
-import { moneyOnTable } from "./../../../../../Calculator/index"
+import { moneyOnTable } from "./../../../Calculator"
 import { useSelector, useDispatch } from 'react-redux'
 import { decreaseMyMoney } from "./../../../../../Redux/Reducers/myMoneyReducer"
 import { notifyError } from "../../../../../Utils/toasts"

@@ -5,7 +5,7 @@ import { spinNewPrizeNumber } from "../../../Redux/Reducers/prizeNumberReducer"
 import { setSpin } from "../../../Redux/Reducers/spinReducer"
 import { useSelector, useDispatch } from 'react-redux'
 import { GeneralDiv, SpinButton } from "./style"
-import { splitPrizes, resetMoneyOnTable } from "./../../../Calculator"
+import { splitPrizes, resetMoneyOnTable } from "./../Calculator"
 import { increaseMyMoney } from "./../../../Redux/Reducers/myMoneyReducer"
 import { resetMoneyImgFromTable } from "../Utils/functions"
 import { NONE_PRIZE, NO_MORE_BETS, SUM_PRIZE } from "../Utils/messages"

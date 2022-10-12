@@ -3,7 +3,7 @@ import { Border } from "./style";
 import { useSelector, useDispatch } from 'react-redux'
 import { getPrizeNumber } from "../../../Spinner/rouletteOptions"
 import { extractPrizeNumber } from "../../../Utils/functions"
-import { moneyOnTable } from "./../../../../../Calculator/index"
+import { moneyOnTable } from "./../../../Calculator"
 import { decreaseMyMoney } from "./../../../../../Redux/Reducers/myMoneyReducer"
 import { notifyError } from "../../../../../Utils/toasts"
 import { NOT_HAVE_ENOUGH_MONEY } from "../../../Utils/messages"
