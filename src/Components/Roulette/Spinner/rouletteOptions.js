@@ -1,5 +1,5 @@
 const defaultValues = [
-    { option: `0`, style: { backgroundColor: 'green' } },
+    { option: '0', style: { backgroundColor: 'green' } },
     { option: '32', style: { backgroundColor: 'red' } },
     { option: '15', style: { backgroundColor: 'black' } },
     { option: '19', style: { backgroundColor: 'red' } },
@@ -47,4 +47,8 @@ export const addBallToWinner = (place) => {
     })
 }
 export const resetValues = () => { roulette = defaultValues }
-export const getPrizeNumber = (place) => place && roulette[parseInt(place)].option
+export const getPrizeNumber = (place) => {
+    if(place) return roulette[parseInt(place)].option
+    if(place === 0) return roulette[0].option
+}
+export const getColor = (number) => defaultValues.find(value => value.option === number)?.style.backgroundColor

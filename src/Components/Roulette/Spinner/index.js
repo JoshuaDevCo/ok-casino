@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { GeneralDiv, SpinButton } from "./style"
 import { splitPrizes, resetMoneyOnTable } from "./../Calculator"
 import { increaseMyMoney } from "./../../../Redux/Reducers/myMoneyReducer"
+import { addNewResult } from "./../../../Redux/Reducers/historyRouletteResultsReducer"
 import { resetMoneyImgFromTable } from "../Utils/functions"
 import { NONE_PRIZE, NO_MORE_BETS, SUM_PRIZE } from "../Utils/messages"
 import { notifyWarn, notifyInfo } from "../../../Utils/toasts"
@@ -26,6 +27,7 @@ const Spinner = () => {
 
     const handleFinishSpinnig = () => {
         addBallToWinner(realPrizeNumber)
+        dispatch(addNewResult(realPrizeNumber))
         const prize = splitPrizes(realPrizeNumber)
         if(prize > 0)
             notifyInfo(SUM_PRIZE(prize))

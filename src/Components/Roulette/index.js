@@ -2,6 +2,7 @@ import React from 'react';
 import Board from "./Board";
 import Spinner from "./Spinner";
 import MyMoney from "./MyMoney";
+import History from "./History";
 import { GeneralDiv, InteriorDiv, TitleGame } from "./style";
 import { ROULETTE_TITLE } from "./Utils/constants"
 
@@ -14,6 +15,7 @@ const Roulette = () => {
                 <MyMoney />
                 <Board />
                 <Spinner />
+                <History />
             </InteriorDiv>
         </GeneralDiv>
     );
