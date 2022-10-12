@@ -12,5 +12,4 @@ export const HIGH = "19 to 36"
 export const ODD = "ODD"
 export const EVEN = "EVEN"
 export const ROULETTE_TITLE = "France Roulette"
-export const BLACKJACK_TITLE = "Black Jack"
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { GeneralDiv, InteriorDiv, TitleGame } from "./style";
-import { BLACKJACK_TITLE } from "../Roulette/Utils/constants"
+import { BLACKJACK_TITLE } from "../BlackJack/Utils/constants"
 
 const BlackJack = () => {
     return (
