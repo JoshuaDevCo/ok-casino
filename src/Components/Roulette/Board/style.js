@@ -6,7 +6,7 @@ export const GeneralDiv = styled.div`
     padding-top: 5px;
     height: 560px;
     width: 270px;
-    background-color: #295936;
+    background-color: #0e5428;
 `;
 
 export const FullDiv = styled.div`
