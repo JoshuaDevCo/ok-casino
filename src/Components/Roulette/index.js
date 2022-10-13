@@ -1,7 +1,7 @@
 import React from 'react';
 import Board from "./Board";
 import Spinner from "./Spinner";
-import MyMoney from "./MyMoney";
+import MyMoney from "./../Common/MyMoney";
 import History from "./History";
 import { GeneralDiv, InteriorDiv } from "./style";
 

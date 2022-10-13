@@ -1,11 +1,12 @@
 import React from 'react';
 import { GeneralDiv, InteriorDiv } from "./style";
+import MyMoney from "./../Common/MyMoney/index";
 
 const BlackJack = () => {
     return (
         <GeneralDiv>
             <InteriorDiv>
-                BlackJack
+                <MyMoney />
             </InteriorDiv>
         </GeneralDiv>
     );
