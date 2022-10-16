@@ -4,9 +4,11 @@ import './index.css';
 import App from './App';
 import store from './Redux/store'
 import { Provider } from 'react-redux'
-import { resetMoneyOnTable } from "./Components/Roulette/Calculator"
+import { resetMoneyOnRouletteTable } from "./Components/Roulette/Calculator"
+import { resetMoneyOnBlackJackTable } from "./Components/BlackJack/Calculator"
 
-resetMoneyOnTable()
+resetMoneyOnRouletteTable()
+resetMoneyOnBlackJackTable()
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(

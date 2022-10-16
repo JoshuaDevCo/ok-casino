@@ -5,7 +5,7 @@ import { spinNewPrizeNumber } from "../../../Redux/Reducers/prizeNumberReducer"
 import { setSpin } from "../../../Redux/Reducers/spinReducer"
 import { useSelector, useDispatch } from 'react-redux'
 import { GeneralDiv, SpinButton } from "./style"
-import { splitPrizes, resetMoneyOnTable } from "./../Calculator"
+import { splitPrizes, resetMoneyOnRouletteTable } from "./../Calculator"
 import { increaseMyMoney } from "./../../../Redux/Reducers/myMoneyReducer"
 import { addNewResult } from "./../../../Redux/Reducers/historyRouletteResultsReducer"
 import { resetMoneyImgFromTable } from "../Utils/functions"
@@ -34,7 +34,7 @@ const Spinner = () => {
         else
             notifyInfo(NONE_PRIZE)
         dispatch(increaseMyMoney(prize))
-        resetMoneyOnTable()
+        resetMoneyOnRouletteTable()
         resetMoneyImgFromTable()
         dispatch(setSpin())
     }

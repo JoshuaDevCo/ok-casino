@@ -70,7 +70,7 @@ export const splitPrizes = (prizeNumber) => {
     return sum;
 }
 
-export const resetMoneyOnTable = () => {
+export const resetMoneyOnRouletteTable = () => {
     moneyOnTable = {
         "0": 0,
         "1": 0,

@@ -1,14 +1,13 @@
 import React from 'react';
-import { GeneralDiv, InteriorDiv } from "./style";
-import MyMoney from "./../Common/MyMoney/index";
-import Card from "./Cards"
+import { GeneralDiv } from "./style";
+import MyMoney from "./../Common/MyMoney";
+import BetPlace from "./BetPlace";
 
 const BlackJack = () => {
     return (
         <GeneralDiv>
-            <InteriorDiv>
-                <MyMoney />
-            </InteriorDiv>
+            <BetPlace />
+            <MyMoney />
         </GeneralDiv>
     );
 };
