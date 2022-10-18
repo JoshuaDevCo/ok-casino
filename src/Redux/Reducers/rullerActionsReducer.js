@@ -4,7 +4,7 @@ export const rullerActionsReducer = createSlice({
     name: 'rullerActions',
     initialState: {
         value: "Starting",
-        buttons: ["Stand", "Hit", "Double"]
+        buttons: ["Deal", "Clear"]
     },
     reducers: {
         setRullerActions: (state, action) => {

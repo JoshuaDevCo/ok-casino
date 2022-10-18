@@ -9,8 +9,8 @@ const RullerAction = () => {
         <GeneralDiv>
             <RullerDiv>
                 {
-                    buttons.map(button => {
-                        return <ActionButton buttonText={button} />
+                    buttons.map((button, index) => {
+                        return <ActionButton key={index} buttonText={button} />
                     })
                 }
             </RullerDiv>
