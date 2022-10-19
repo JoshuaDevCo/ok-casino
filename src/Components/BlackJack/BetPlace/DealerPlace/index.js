@@ -11,14 +11,14 @@ const DealerPlace = () => {
     const { cardsOnTable } = useSelector((state) => state.cardsHands)
     const myHand = cardsOnTable[ID]
     const getHidingCards = () => {
-        let first = true;
-        return myHand.map(({ number, kind }) => {
-            if (first) {
-                first = false;
-                return <Card number={number} kind={kind} key={number + kind + uuidv4()} />
-            }
-            return <Card number={number} kind={kind} key={number + kind + uuidv4()} isReverse={true} />
-        })
+        const firstCard = myHand[0]
+        const seconedCard = myHand[1]
+        return (
+            <>
+                <Card number={firstCard.number} kind={firstCard.kind} key={firstCard.number + firstCard.kind + uuidv4()} />
+                <Card number={seconedCard.number} kind={seconedCard.kind} key={seconedCard.number + seconedCard.kind + uuidv4()} isReverse={true} />
+            </>
+        )
     }
     return (
         <GeneralDiv>

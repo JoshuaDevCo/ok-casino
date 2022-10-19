@@ -25,6 +25,7 @@ const ActionButton = ({ buttonText }) => {
                 dispatch(setRullerActions("Playing"))
                 giveFirstCards()
                 dispatch(oredrPlayers())
+                dispatch(addCardsToDealer())
                 break
             }
             case "Clear": {
@@ -100,8 +101,6 @@ const ActionButton = ({ buttonText }) => {
             if (!betPlaceIsEmpty(hand)) {
                 const sumOfMyHand = sumMyHand(cardsOnTable[hand])
                 const sumOfDealerHand = sumMyHand(cardsOnTable["dealer"])
-                console.log("sumOfMyHand: " + sumOfMyHand);
-                console.log("sumOfDealerHand: " + sumOfDealerHand);
                 if (sumOfMyHand <= 21) {
                     if (sumOfDealerHand > 21 || sumOfMyHand >= sumOfDealerHand) {
                         const currentPrize = splitPrizes(hand, sumOfMyHand === 21);
@@ -109,14 +108,12 @@ const ActionButton = ({ buttonText }) => {
                         notifyInfo(SUM_PRIZE(currentPrize, hand[hand.length - 1]));
                     }
                 }
-
             }
         })
     }
     const FinishGame = () => {
         dispatch(setHiding())
         dispatch(setRullerActions("GameOver"));
-        dispatch(addCardsToDealer())
         checkWinners()
     }
     return (
