@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import dealerImg from "./../../../../Assets/dealer.png"
 
 export const GeneralDiv = styled.div`
     position: absolute;
@@ -27,4 +28,14 @@ export const CardsSum = styled.div`
     border-radius: 25%;
     font-size: xx-large;
     font-weight: 700;
+`;
+
+export const DealerImg = styled.div`
+    height: 170px;
+    width: 170px;
+    background: ${`url(${dealerImg}) no-repeat center`};
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 `;

@@ -2,7 +2,7 @@ import React from 'react';
 import Card from "./../../Cards"
 import { getHandCards, getDealerCardsInHiding } from "./../../Calculator"
 import { sumMyHand } from "./../../Cards/functions"
-import { GeneralDiv, CardsDeck, CardsSum } from "./style"
+import { GeneralDiv, CardsDeck, CardsSum, DealerImg } from "./style"
 import { useSelector } from "react-redux"
 const ID = "dealer"
 
@@ -23,6 +23,7 @@ const DealerPlace = () => {
     return (
         <GeneralDiv>
             <>
+                <DealerImg />
                 <CardsSum>
                     {
                         isDealerHide ?
