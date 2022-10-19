@@ -1,15 +1,14 @@
 import React from 'react';
 import Card from "./../../Cards"
-import { getHandCards, getDealerCardsInHiding } from "./../../Calculator"
 import { sumMyHand } from "./../../Cards/functions"
 import { GeneralDiv, CardsDeck, CardsSum, DealerImg } from "./style"
 import { useSelector } from "react-redux"
 const ID = "dealer"
 
 const DealerPlace = () => {
-    const myHand = getHandCards(ID)
     const isDealerHide = useSelector((state) => state.dealerStates)
-
+    const { cardsOnTable } = useSelector((state) => state.cardsHands)
+    const myHand = cardsOnTable[ID]
     const getHidingCards = () => {
         let first = true;
         return myHand.map(({ number, kind }) => {
@@ -27,14 +26,14 @@ const DealerPlace = () => {
                 <CardsSum>
                     {
                         isDealerHide ?
-                            sumMyHand(getDealerCardsInHiding()) :
+                            sumMyHand([myHand[0]]) :
                             sumMyHand(myHand)
                     }
                 </CardsSum>
                 <CardsDeck>
                     {
                         isDealerHide ?
-                            getHidingCards():
+                            getHidingCards() :
                             myHand.map(({ number, kind }) => <Card number={number} kind={kind} key={number + kind + Date.now()} />)
                     }
                 </CardsDeck>

@@ -6,6 +6,8 @@ import myMoneyReducer from './Reducers/myMoneyReducer'
 import historyRouletteResultsReducer from './Reducers/historyRouletteResultsReducer'
 import rullerActionsReducer from './Reducers/rullerActionsReducer'
 import dealerStatesReducer from './Reducers/dealerStatesReducer'
+import turnPlayReducer from './Reducers/turnPlayReducer'
+import cardsHandsReducer from './Reducers/cardsHandsReducer'
 
 export default configureStore({
     reducer: {
@@ -15,6 +17,8 @@ export default configureStore({
         myMoney: myMoneyReducer,
         historyRouletteResults: historyRouletteResultsReducer,
         rullerActions: rullerActionsReducer,
-        dealerStates: dealerStatesReducer
+        dealerStates: dealerStatesReducer,
+        turnPlay: turnPlayReducer,
+        cardsHands: cardsHandsReducer
     },
 })

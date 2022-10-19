@@ -5,17 +5,19 @@ import { decreaseMyMoney } from "./../../../../Redux/Reducers/myMoneyReducer"
 import { notifyError } from "../../../../Utils/toasts"
 import { NOT_HAVE_ENOUGH_MONEY } from "./../../Utils/messages"
 import { getIconChip } from "./../../../Common/MyMoney/Chips/style"
-import { moneyOnTable, getMoneyBet, betPlaceIsEmpty, getHandCards } from "./../../Calculator"
+import { moneyOnTable, getMoneyBet, betPlaceIsEmpty } from "./../../Calculator"
 import { useSelector, useDispatch } from 'react-redux'
-import { GeneralDiv, BetButton, BetSumDiv, CardsDeck, CardsSum } from "./style"
+import { GeneralDiv, BetButton, BetSumDiv, CardsDeck, CardsSum, DownArrow } from "./style"
 import { resetChipsFromTable } from "./../../Utils/functions"
 import { setRullerActions } from '../../../../Redux/Reducers/rullerActionsReducer';
 import { GAME_STATES } from "./../../Utils/states"
 import { sumMyHand } from "./../../Cards/functions"
 
 const PlaceButton = ({ id }) => {
-    const myHand = getHandCards(id)
+    const { cardsOnTable } = useSelector((state) => state.cardsHands)
+    const myHand = cardsOnTable[id]
     const { value, color } = useSelector((state) => state.chosenChip)
+    const { currentPlayer } = useSelector((state) => state.turnPlay)
     const state = useSelector((state) => state.rullerActions)
     const myMoney = useSelector((state) => state.myMoney.value)
     const dispatch = useDispatch()
@@ -40,10 +42,17 @@ const PlaceButton = ({ id }) => {
             {
                 (!betPlaceIsEmpty(id) && state.value === GAME_STATES.PLAYING) ?
                     <>
+                        {
+                            currentPlayer === id &&
+                            <DownArrow>⬇</DownArrow>
+
+                        }
                         <CardsSum>{sumMyHand(myHand)}</CardsSum>
                         <CardsDeck>
                             {
-                                myHand && myHand.map(({ number, kind }) => <Card number={number} kind={kind} key={number + kind + Date.now()} />)
+                                myHand.map(({ number, kind }) => {
+                                    return <Card number={number} kind={kind} key={number + kind + Date.now()} />
+                                })
                             }
                         </CardsDeck>
                     </>

@@ -60,14 +60,14 @@ export const cardsSetting = {
     Club: { color: "black", icon: "♣" },
 }
 export let currentDeck = fullDeck
-export const getNextCard = () => {
+export const getNextCard = () => { // BUG: to fix the random giving
     const length = currentDeck.length;
     if (length === 0) {
         currentDeck = fullDeck;
     }
     const chosenNum = Math.floor((Math.random() * (currentDeck.length)))
     const chosenCard = currentDeck[chosenNum]
-    currentDeck.filter(({ number, kind }) => number === chosenCard.number && kind === chosenCard.kind)
+    currentDeck.filter(({ number, kind }) => number !== chosenCard.number && kind !== chosenCard.kind)
     return chosenCard;
 }
 
@@ -75,6 +75,7 @@ export const sumMyHand = (myCards) => {
     let sum = 0;
     let areAces = false;
     let allowReduceAce = true;
+    console.log(myCards);
     myCards.forEach(({ number, kind }) => {
         switch (number) {
             case "K":

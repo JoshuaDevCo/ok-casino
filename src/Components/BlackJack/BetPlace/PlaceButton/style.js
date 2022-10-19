@@ -41,8 +41,14 @@ export const CardsSum = styled.div`
     width: 50px;
     height: 45px;
     border: 3px solid black;
-    margin: 10px;
     border-radius: 25%;
     font-size: xx-large;
     font-weight: 700;
+
 `; 
+
+export const DownArrow = styled.p`
+    font-size: 50px;
+    color: red;
+    margin: 0;
+`;
