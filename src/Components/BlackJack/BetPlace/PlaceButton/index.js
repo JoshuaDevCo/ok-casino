@@ -8,6 +8,7 @@ import { moneyOnTable, getMoneyBet } from "./../../Calculator"
 import { useSelector, useDispatch } from 'react-redux'
 import { GeneralDiv, BetButton, BetSumDiv } from "./style"
 import { resetChipsFromTable } from "./../../Utils/functions"
+import { setRullerActions } from '../../../../Redux/Reducers/rullerActionsReducer';
 
 const PlaceButton = ({ id }) => {
     const { value, color } = useSelector((state) => state.chosenChip)
@@ -20,6 +21,7 @@ const PlaceButton = ({ id }) => {
             moneyOnTable[buttonName] = moneyOnTable[buttonName] + value;
             element.innerHTML += `<img src="${getIconChip(color)}" style="height:40px; width:40px; position: absolute; padding-${(Math.random() * 1 > 1) ? 'right' : 'left'}: ${(Math.random() * 30)}px" />`
             dispatch(decreaseMyMoney(value))
+            dispatch(setRullerActions("Betting"))
         } else {
             notifyError(NOT_HAVE_ENOUGH_MONEY)
         }

@@ -14,5 +14,5 @@ export const Button = styled.button`
     font-weight: 800;
     transform: translateY(-50%);
     top: 50%;
-    cursor: pointer;
+    cursor: ${props => props.disabled ? "not-allowed" : "pointer"};
 `;

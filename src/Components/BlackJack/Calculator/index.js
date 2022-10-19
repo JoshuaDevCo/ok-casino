@@ -35,3 +35,7 @@ export const splitPrizes = (winningPlace, isBlackJack) => {
 export const getMoneyBet = (id) => {
     return moneyOnTable[id];
 }
+
+export const tableIsEmpty = () => {
+    return moneyOnTable.place_button_1 === 0 && moneyOnTable.place_button_2 === 0 && moneyOnTable.place_button_3 === 0
+}
