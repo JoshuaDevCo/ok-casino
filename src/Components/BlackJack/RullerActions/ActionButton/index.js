@@ -12,7 +12,7 @@ import { setRullerActions } from '../../../../Redux/Reducers/rullerActionsReduce
 import { addNewCardsToHand, resetCardsOnBlackJackTable, addCardsToDealer } from '../../../../Redux/Reducers/cardsHandsReducer';
 import { resetChipsFromTable } from "./../../Utils/functions"
 import { sumMyHand } from '../../Cards/functions';
-import { SUM_PRIZE } from "./../../Utils/messages"
+import { SUM_PRIZE, HIT_ON_HIGH_NUMS } from "./../../Utils/messages"
 
 const ActionButton = ({ buttonText }) => {
     const { currentPlayer, index, players } = useSelector((state) => state.turnPlay)
@@ -35,7 +35,13 @@ const ActionButton = ({ buttonText }) => {
                 break
             }
             case "Hit": {
-                dispatch(addNewCardsToHand(currentPlayer));
+                if (sumMyHand(cardsOnTable[currentPlayer]) > 17) {
+                    if (window.confirm(HIT_ON_HIGH_NUMS)) {
+                        dispatch(addNewCardsToHand(currentPlayer));
+                    }
+                } else {
+                    dispatch(addNewCardsToHand(currentPlayer));
+                }
                 break;
             }
             case "Stand": {
@@ -48,7 +54,15 @@ const ActionButton = ({ buttonText }) => {
             case "Double": {
                 const currentSum = getMoneyBet(currentPlayer)
                 if (currentSum <= myMoney) {
-                    dispatch(addNewCardsToHand(currentPlayer));
+                    if (sumMyHand(cardsOnTable[currentPlayer]) > 17) {
+                        if (window.confirm(HIT_ON_HIGH_NUMS)) {
+                            dispatch(addNewCardsToHand(currentPlayer));
+                        } else {
+                            return
+                        }
+                    } else {
+                        dispatch(addNewCardsToHand(currentPlayer));
+                    } 
                     setMoneyBet(currentPlayer, currentSum * 2)
                     dispatch(decreaseMyMoney(currentSum))
                     dispatch(getNextTurn())
@@ -85,11 +99,14 @@ const ActionButton = ({ buttonText }) => {
         ["place_button_1", "place_button_2", "place_button_3"].forEach((hand) => {
             if (!betPlaceIsEmpty(hand)) {
                 const sumOfMyHand = sumMyHand(cardsOnTable[hand])
+                const sumOfDealerHand = sumMyHand(cardsOnTable["dealer"])
+                console.log("sumOfMyHand: " + sumOfMyHand);
+                console.log("sumOfDealerHand: " + sumOfDealerHand);
                 if (sumOfMyHand <= 21) {
-                    if (sumOfMyHand >= sumMyHand(cardsOnTable["dealer"])) {
+                    if (sumOfDealerHand > 21 || sumOfMyHand >= sumOfDealerHand) {
                         const currentPrize = splitPrizes(hand, sumOfMyHand === 21);
                         dispatch(increaseMyMoney(currentPrize));
-                        notifyInfo(SUM_PRIZE(currentPrize));
+                        notifyInfo(SUM_PRIZE(currentPrize, hand[hand.length - 1]));
                     }
                 }
 
