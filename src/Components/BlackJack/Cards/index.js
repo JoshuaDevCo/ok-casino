@@ -1,8 +1,14 @@
 import React from 'react';
-import { CardDiv, Icon, Number } from "./style";
+import { CardDiv, CardReverseDiv, Icon, Number } from "./style";
 import { cardsSetting } from "./functions"
 
-const Card = ({ number, kind }) => {
+const Card = ({ number, kind, isReverse }) => {
+    if (isReverse) {
+        return (
+            <CardReverseDiv kind={kind}>
+            </CardReverseDiv>
+        )
+    }
     return (
         <CardDiv kind={kind}>
             <Number>{number}</Number>

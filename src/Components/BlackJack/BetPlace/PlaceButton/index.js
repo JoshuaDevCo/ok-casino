@@ -1,17 +1,22 @@
 import React from 'react';
+import Card from "./../../Cards"
 import { BET_PLACE_TEXT } from "./../constants"
 import { decreaseMyMoney } from "./../../../../Redux/Reducers/myMoneyReducer"
 import { notifyError } from "../../../../Utils/toasts"
 import { NOT_HAVE_ENOUGH_MONEY } from "./../../Utils/messages"
 import { getIconChip } from "./../../../Common/MyMoney/Chips/style"
-import { moneyOnTable, getMoneyBet } from "./../../Calculator"
+import { moneyOnTable, getMoneyBet, betPlaceIsEmpty, getHandCards } from "./../../Calculator"
 import { useSelector, useDispatch } from 'react-redux'
-import { GeneralDiv, BetButton, BetSumDiv } from "./style"
+import { GeneralDiv, BetButton, BetSumDiv, CardsDeck, CardsSum } from "./style"
 import { resetChipsFromTable } from "./../../Utils/functions"
 import { setRullerActions } from '../../../../Redux/Reducers/rullerActionsReducer';
+import { GAME_STATES } from "./../../Utils/states"
+import { sumMyHand } from "./../../Cards/functions"
 
 const PlaceButton = ({ id }) => {
+    const myHand = getHandCards(id)
     const { value, color } = useSelector((state) => state.chosenChip)
+    const state = useSelector((state) => state.rullerActions)
     const myMoney = useSelector((state) => state.myMoney.value)
     const dispatch = useDispatch()
     const handleOnClick = (buttonName) => {
@@ -26,9 +31,25 @@ const PlaceButton = ({ id }) => {
             notifyError(NOT_HAVE_ENOUGH_MONEY)
         }
     }
+
+    const noMoreBets = () => {
+        return state.value === GAME_STATES.PLAYING || state.value === GAME_STATES.GAME_OVER
+    }
     return (
         <GeneralDiv>
-            <BetButton id={id} disabled={!color} onClick={() => handleOnClick(id)}>{BET_PLACE_TEXT}</BetButton>
+            {
+                (!betPlaceIsEmpty(id) && state.value === GAME_STATES.PLAYING) ?
+                    <>
+                        <CardsSum>{sumMyHand(myHand)}</CardsSum>
+                        <CardsDeck>
+                            {
+                                myHand && myHand.map(({ number, kind }) => <Card number={number} kind={kind} key={number + kind + Date.now()} />)
+                            }
+                        </CardsDeck>
+                    </>
+                    : null
+            }
+            <BetButton id={id} disabled={!color || noMoreBets()} onClick={() => handleOnClick(id)}>{BET_PLACE_TEXT}</BetButton>
             <BetSumDiv>{getMoneyBet(id)}</BetSumDiv>
         </GeneralDiv>
     );

@@ -5,6 +5,7 @@ import chosenChipReducer from './Reducers/chosenChipReducer'
 import myMoneyReducer from './Reducers/myMoneyReducer'
 import historyRouletteResultsReducer from './Reducers/historyRouletteResultsReducer'
 import rullerActionsReducer from './Reducers/rullerActionsReducer'
+import dealerStatesReducer from './Reducers/dealerStatesReducer'
 
 export default configureStore({
     reducer: {
@@ -13,6 +14,7 @@ export default configureStore({
         chosenChip: chosenChipReducer,
         myMoney: myMoneyReducer,
         historyRouletteResults: historyRouletteResultsReducer,
-        rullerActions: rullerActionsReducer
+        rullerActions: rullerActionsReducer,
+        dealerStates: dealerStatesReducer
     },
 })

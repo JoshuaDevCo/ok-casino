@@ -1,10 +1,22 @@
+import { getNextCard } from "./../Cards/functions"
+
 export let moneyOnTable = {}
+export let cardsOnTable = {}
 
 export const resetMoneyOnBlackJackTable = () => {
     moneyOnTable = {
         place_button_1: 0,
         place_button_2: 0,
         place_button_3: 0
+    }
+}
+
+export const resetCardsOnBlackJackTable = () => {
+    cardsOnTable = {
+        place_button_1: [],
+        place_button_2: [],
+        place_button_3: [],
+        dealer: []
     }
 }
 
@@ -31,11 +43,36 @@ export const splitPrizes = (winningPlace, isBlackJack) => {
     return sum;
 }
 
+export const giveFirstCards = () => {
+    ["place_button_1", "place_button_2", "place_button_3", "dealer"].forEach(hand => {
+        if (!betPlaceIsEmpty(hand)) {
+            addNewCardsToHand(hand);
+            addNewCardsToHand(hand);
+        }
+    })
+}
 
 export const getMoneyBet = (id) => {
     return moneyOnTable[id];
 }
 
+export const getHandCards = (id) => {
+    return cardsOnTable[id];
+}
+
+export const addNewCardsToHand = (id) => {
+    cardsOnTable[id].push(getNextCard());
+}
+
+export const betPlaceIsEmpty = (id) => {
+    return moneyOnTable[id] === 0;
+}
+
+
 export const tableIsEmpty = () => {
     return moneyOnTable.place_button_1 === 0 && moneyOnTable.place_button_2 === 0 && moneyOnTable.place_button_3 === 0
+}
+
+export const getDealerCardsInHiding = () => {
+    return [cardsOnTable.dealer[0]]
 }

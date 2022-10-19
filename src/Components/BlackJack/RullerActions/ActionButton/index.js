@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from "./style";
-import { clearBetsOnBlackJackTable, tableIsEmpty } from "./../../Calculator"
+import { clearBetsOnBlackJackTable, tableIsEmpty, giveFirstCards } from "./../../Calculator"
 import { useDispatch } from 'react-redux'
 import { increaseMyMoney } from '../../../../Redux/Reducers/myMoneyReducer';
 import { setRullerActions } from '../../../../Redux/Reducers/rullerActionsReducer';
@@ -11,7 +11,8 @@ const ActionButton = ({ buttonText }) => {
     const handleOnClick = () => {
         switch (buttonText) {
             case "Deal": {
-
+                dispatch(setRullerActions("Playing"))
+                giveFirstCards()
                 break
             }
             case "Clear": {
