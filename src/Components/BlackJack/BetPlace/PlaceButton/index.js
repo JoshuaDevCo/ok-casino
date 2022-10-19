@@ -40,7 +40,7 @@ const PlaceButton = ({ id }) => {
     return (
         <GeneralDiv>
             {
-                (!betPlaceIsEmpty(id) && state.value === GAME_STATES.PLAYING) ?
+                (!betPlaceIsEmpty(id) && (state.value === GAME_STATES.PLAYING || state.value === GAME_STATES.GAME_OVER)) ?
                     <>
                         {
                             currentPlayer === id &&

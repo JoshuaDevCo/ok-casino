@@ -35,6 +35,10 @@ export const getMoneyBet = (id) => {
     return moneyOnTable[id];
 }
 
+export const setMoneyBet = (id, newAmount) => {
+    moneyOnTable[id] = newAmount;
+}
+
 export const betPlaceIsEmpty = (id) => {
     return moneyOnTable[id] === 0;
 }

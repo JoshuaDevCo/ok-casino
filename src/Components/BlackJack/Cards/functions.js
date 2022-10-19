@@ -75,7 +75,6 @@ export const sumMyHand = (myCards) => {
     let sum = 0;
     let areAces = false;
     let allowReduceAce = true;
-    console.log(myCards);
     myCards.forEach(({ number, kind }) => {
         switch (number) {
             case "K":

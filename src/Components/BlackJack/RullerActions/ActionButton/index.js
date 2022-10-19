@@ -1,17 +1,22 @@
 import React from 'react';
+import { getMoneyBet, setMoneyBet, resetMoneyOnBlackJackTable } from "./../../Calculator"
 import { Button } from "./style";
+import { decreaseMyMoney } from "./../../../../Redux/Reducers/myMoneyReducer"
+import { notifyError } from "../../../../Utils/toasts"
+import { NOT_HAVE_ENOUGH_MONEY } from "./../../Utils/messages"
 import { clearBetsOnBlackJackTable, tableIsEmpty, betPlaceIsEmpty } from "./../../Calculator"
 import { useDispatch, useSelector } from 'react-redux'
 import { increaseMyMoney } from '../../../../Redux/Reducers/myMoneyReducer';
 import { getNextTurn, oredrPlayers } from '../../../../Redux/Reducers/turnPlayReducer';
 import { setRullerActions } from '../../../../Redux/Reducers/rullerActionsReducer';
-import { addNewCardsToHand } from '../../../../Redux/Reducers/cardsHandsReducer';
+import { addNewCardsToHand, resetCardsOnBlackJackTable } from '../../../../Redux/Reducers/cardsHandsReducer';
 import { resetChipsFromTable } from "./../../Utils/functions"
 
 const ActionButton = ({ buttonText }) => {
     const { currentPlayer } = useSelector((state) => state.turnPlay)
+    const myMoney = useSelector((state) => state.myMoney.value)
     const dispatch = useDispatch()
-    const handleOnClick = () => {
+    const handleOnClick = async () => {
         switch (buttonText) {
             case "Deal": {
                 dispatch(setRullerActions("Playing"))
@@ -28,19 +33,31 @@ const ActionButton = ({ buttonText }) => {
             }
             case "Hit": {
                 dispatch(addNewCardsToHand(currentPlayer));
-                break
+                break;
             }
             case "Stand": {
                 dispatch(getNextTurn())
                 break
             }
             case "Double": {
-
-                break
+                const currentSum = getMoneyBet(currentPlayer)
+                if (currentSum <= myMoney) {
+                    dispatch(addNewCardsToHand(currentPlayer));
+                    setMoneyBet(currentPlayer, currentSum * 2)
+                    dispatch(decreaseMyMoney(currentSum))
+                    dispatch(getNextTurn())
+                } else {
+                    notifyError(NOT_HAVE_ENOUGH_MONEY)
+                }
+                break;
             }
-            case "New Bet": {
 
-                break
+            case "New Bet": {
+                dispatch(resetCardsOnBlackJackTable())
+                dispatch(setRullerActions("Starting"))
+                resetMoneyOnBlackJackTable()
+                resetChipsFromTable()
+                break;
             }
             default: { }
 
