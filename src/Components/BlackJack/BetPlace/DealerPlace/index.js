@@ -1,12 +1,13 @@
 import React from 'react';
 import Card from "./../../Cards"
+import { v4 as uuidv4 } from 'uuid';
 import { sumMyHand } from "./../../Cards/functions"
 import { GeneralDiv, CardsDeck, CardsSum, DealerImg } from "./style"
 import { useSelector } from "react-redux"
 const ID = "dealer"
 
 const DealerPlace = () => {
-    const isDealerHide = useSelector((state) => state.dealerStates)
+    const { hide } = useSelector((state) => state.dealerStates)
     const { cardsOnTable } = useSelector((state) => state.cardsHands)
     const myHand = cardsOnTable[ID]
     const getHidingCards = () => {
@@ -14,9 +15,9 @@ const DealerPlace = () => {
         return myHand.map(({ number, kind }) => {
             if (first) {
                 first = false;
-                return <Card number={number} kind={kind} key={number + kind + Date.now()} />
+                return <Card number={number} kind={kind} key={number + kind + uuidv4()} />
             }
-            return <Card number={number} kind={kind} key={number + kind + Date.now()} isReverse={true} />
+            return <Card number={number} kind={kind} key={number + kind + uuidv4()} isReverse={true} />
         })
     }
     return (
@@ -25,16 +26,16 @@ const DealerPlace = () => {
                 <DealerImg />
                 <CardsSum>
                     {
-                        isDealerHide ?
+                        hide ?
                             sumMyHand([myHand[0]]) :
                             sumMyHand(myHand)
                     }
                 </CardsSum>
                 <CardsDeck>
                     {
-                        isDealerHide ?
+                        hide ?
                             getHidingCards() :
-                            myHand.map(({ number, kind }) => <Card number={number} kind={kind} key={number + kind + Date.now()} />)
+                            myHand.map(({ number, kind }) => <Card number={number} kind={kind} key={number + kind + uuidv4()} />)
                     }
                 </CardsDeck>
             </>

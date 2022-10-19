@@ -19,8 +19,8 @@ export const clearBetsOnBlackJackTable = () => {
 }
 
 export const splitPrizes = (winningPlace, isBlackJack) => {
-    let sum = 0;
     const value = moneyOnTable[winningPlace]
+    let sum = value;
     if (value !== 0) {
         if (isBlackJack) {
             sum += 1.5 * value;

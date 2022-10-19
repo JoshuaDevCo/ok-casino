@@ -12,6 +12,7 @@ import { resetChipsFromTable } from "./../../Utils/functions"
 import { setRullerActions } from '../../../../Redux/Reducers/rullerActionsReducer';
 import { GAME_STATES } from "./../../Utils/states"
 import { sumMyHand } from "./../../Cards/functions"
+import { v4 as uuidv4 } from 'uuid';
 
 const PlaceButton = ({ id }) => {
     const { cardsOnTable } = useSelector((state) => state.cardsHands)
@@ -51,7 +52,7 @@ const PlaceButton = ({ id }) => {
                         <CardsDeck>
                             {
                                 myHand.map(({ number, kind }) => {
-                                    return <Card number={number} kind={kind} key={number + kind + Date.now()} />
+                                    return <Card number={number} kind={kind} key={number + kind + uuidv4()} />
                                 })
                             }
                         </CardsDeck>

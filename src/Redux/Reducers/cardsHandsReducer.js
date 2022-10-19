@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { getNextCard } from "./../../Components/BlackJack/Cards/functions"
+import { getNextCard, sumMyHand } from "./../../Components/BlackJack/Cards/functions"
 
 export const cardsHandsReducer = createSlice({
   name: 'cardsHands',
@@ -23,9 +23,14 @@ export const cardsHandsReducer = createSlice({
     addNewCardsToHand: (state, action) => {
       state.cardsOnTable[action.payload].push(getNextCard());
     },
+    addCardsToDealer: (state) => {
+      while (sumMyHand(state.cardsOnTable.dealer) < 17) {
+        state.cardsOnTable.dealer.push(getNextCard());
+      }
+    },
   },
 })
 
-export const { resetCardsOnBlackJackTable, addNewCardsToHand } = cardsHandsReducer.actions
+export const { resetCardsOnBlackJackTable, addNewCardsToHand, addCardsToDealer } = cardsHandsReducer.actions
 
 export default cardsHandsReducer.reducer
