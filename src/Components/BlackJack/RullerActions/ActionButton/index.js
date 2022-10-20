@@ -7,6 +7,7 @@ import { clearBetsOnBlackJackTable, tableIsEmpty, betPlaceIsEmpty } from "./../.
 import { useDispatch, useSelector } from 'react-redux'
 import { increaseMyMoney, decreaseMyMoney } from '../../../../Redux/Reducers/myMoneyReducer';
 import { setHiding } from '../../../../Redux/Reducers/dealerStatesReducer';
+import { setSpinBackColor, resetAllColors } from '../../../../Redux/Reducers/backColorReducer';
 import { getNextTurn, oredrPlayers } from '../../../../Redux/Reducers/turnPlayReducer';
 import { setRullerActions } from '../../../../Redux/Reducers/rullerActionsReducer';
 import { addNewCardsToHand, resetCardsOnBlackJackTable, addCardsToDealer } from '../../../../Redux/Reducers/cardsHandsReducer';
@@ -63,7 +64,7 @@ const ActionButton = ({ buttonText }) => {
                         }
                     } else {
                         dispatch(addNewCardsToHand(currentPlayer));
-                    } 
+                    }
                     setMoneyBet(currentPlayer, currentSum * 2)
                     dispatch(decreaseMyMoney(currentSum))
                     dispatch(getNextTurn())
@@ -82,6 +83,7 @@ const ActionButton = ({ buttonText }) => {
                 resetMoneyOnBlackJackTable()
                 resetChipsFromTable()
                 dispatch(setHiding())
+                dispatch(resetAllColors())
                 break;
             }
             default: { }
@@ -103,10 +105,15 @@ const ActionButton = ({ buttonText }) => {
                 const sumOfDealerHand = sumMyHand(cardsOnTable["dealer"])
                 if (sumOfMyHand <= 21) {
                     if (sumOfDealerHand > 21 || sumOfMyHand >= sumOfDealerHand) {
+                        dispatch(setSpinBackColor({ state: "Win", id: hand }))
                         const currentPrize = splitPrizes(hand, sumOfMyHand === 21);
                         dispatch(increaseMyMoney(currentPrize));
                         notifyInfo(SUM_PRIZE(currentPrize, hand[hand.length - 1]));
+                    } else {
+                        dispatch(setSpinBackColor({ state: "Bust", id: hand }))
                     }
+                } else {
+                    dispatch(setSpinBackColor({ state: "Bust", id: hand }))
                 }
             }
         })

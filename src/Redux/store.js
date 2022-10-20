@@ -8,6 +8,7 @@ import rullerActionsReducer from './Reducers/rullerActionsReducer'
 import dealerStatesReducer from './Reducers/dealerStatesReducer'
 import turnPlayReducer from './Reducers/turnPlayReducer'
 import cardsHandsReducer from './Reducers/cardsHandsReducer'
+import backColorReducer from './Reducers/backColorReducer'
 
 export default configureStore({
     reducer: {
@@ -19,6 +20,7 @@ export default configureStore({
         rullerActions: rullerActionsReducer,
         dealerStates: dealerStatesReducer,
         turnPlay: turnPlayReducer,
-        cardsHands: cardsHandsReducer
+        cardsHands: cardsHandsReducer,
+        backColor: backColorReducer
     },
 })

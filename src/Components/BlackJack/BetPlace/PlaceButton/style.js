@@ -22,7 +22,7 @@ export const BetSumDiv = styled.div`
     text-align: center;
     width: 80px;
     height: 25px;
-    border: 1px solid black;
+    border: 3px solid ${props => props.backColor || "black"};
     margin: 10px;
     border-radius: 15%;
     font-size: large;

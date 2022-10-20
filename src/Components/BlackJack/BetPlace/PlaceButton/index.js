@@ -19,6 +19,7 @@ const PlaceButton = ({ id }) => {
     const myHand = cardsOnTable[id]
     const { value, color } = useSelector((state) => state.chosenChip)
     const { currentPlayer } = useSelector((state) => state.turnPlay)
+    const { colors } = useSelector((state) => state.backColor)
     const state = useSelector((state) => state.rullerActions)
     const myMoney = useSelector((state) => state.myMoney.value)
     const dispatch = useDispatch()
@@ -60,7 +61,7 @@ const PlaceButton = ({ id }) => {
                     : null
             }
             <BetButton id={id} disabled={!color || noMoreBets()} onClick={() => handleOnClick(id)}>{BET_PLACE_TEXT}</BetButton>
-            <BetSumDiv>{getMoneyBet(id)}</BetSumDiv>
+            <BetSumDiv backColor={colors[id].backColor}>{getMoneyBet(id)}</BetSumDiv>
         </GeneralDiv>
     );
 };
