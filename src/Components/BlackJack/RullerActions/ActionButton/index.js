@@ -20,7 +20,7 @@ const ActionButton = ({ buttonText }) => {
     const myMoney = useSelector((state) => state.myMoney.value)
     const { cardsOnTable } = useSelector((state) => state.cardsHands)
     const dispatch = useDispatch()
-    const handleOnClick = async () => {
+    const handleOnClick = () => {
         switch (buttonText) {
             case "Deal": {
                 dispatch(setRullerActions("Playing"))
@@ -37,20 +37,24 @@ const ActionButton = ({ buttonText }) => {
                 break
             }
             case "Hit": {
-                if (sumMyHand(cardsOnTable[currentPlayer]) > 17) {
+                let myHand = sumMyHand(cardsOnTable[currentPlayer])
+                if (myHand >= 21) {
+                    dispatch(getNextTurn())
+                    checkIfGameOver()
+                    return
+                }
+                if (myHand > 17) {
                     if (window.confirm(HIT_ON_HIGH_NUMS)) {
-                        dispatch(addNewCardsToHand(currentPlayer));
+                        dispatch(addNewCardsToHand(currentPlayer))
                     }
                 } else {
-                    dispatch(addNewCardsToHand(currentPlayer));
+                    dispatch(addNewCardsToHand(currentPlayer))
                 }
                 break;
             }
             case "Stand": {
                 dispatch(getNextTurn())
-                if (players.length - 2 === index) {
-                    FinishGame()
-                }
+                checkIfGameOver()
                 break;
             }
             case "Double": {
@@ -68,9 +72,7 @@ const ActionButton = ({ buttonText }) => {
                     setMoneyBet(currentPlayer, currentSum * 2)
                     dispatch(decreaseMyMoney(currentSum))
                     dispatch(getNextTurn())
-                    if (players.length - 2 === index) {
-                        FinishGame()
-                    }
+                    checkIfGameOver()
                 } else {
                     notifyError(NOT_HAVE_ENOUGH_MONEY)
                 }
@@ -122,6 +124,12 @@ const ActionButton = ({ buttonText }) => {
         dispatch(setHiding())
         dispatch(setRullerActions("GameOver"));
         checkWinners()
+    }
+
+    const checkIfGameOver = () => {
+        if (players.length - 2 === index) {
+            FinishGame()
+        }
     }
     return (
         <Button onClick={handleOnClick} disabled={tableIsEmpty()}>
